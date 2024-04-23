@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<style>
+    h1 , p , h4{
+        text-align: center;
+    }
+    body{
+        background-color: rgb(114, 114, 192);
+    }
+
+</style>
+<body>
+    <h1>JavaScript Tasks</h1>
+
+    <script>
+        // Palindrome Check
+        function isPalindrome(str) {
+            str = str.toLowerCase();
+            let start = 0;
+            let end = str.length - 1;
+
+            while (start < end) {
+                if (str[start] !== str[end]) {
+                    return false;
+                }
+                start++;
+                end--;
+            }
+            return true;
+        }
+
+        // Minimum and Maximum Numbers
+        function findMinMax(arr) {
+            let min = arr[0];
+            let max = arr[0];
+
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return { min, max };
+        }
+
+        // Missing Number Identification
+        function findMissingNumber(arr) {
+            arr.sort((a, b) => a - b);
+
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i + 1] - arr[i] !== 1) {
+                    return arr[i] + 1;
+                }
+            }
+            return -1;
+        }
+
+        // Test cases
+        console.log("1. Palindrome Check:");
+        console.log(isPalindrome("level")); // true
+        console.log(isPalindrome("hello")); // false
+        console.log(isPalindrome("A man, a plan, a canal, Panama")); // true
+
+        console.log("\n2. Minimum and Maximum Numbers:");
+        console.log(findMinMax([3, 1, 4, 1, 5, 9, 2, 6])); // { min: 1, max: 9 }
+        console.log(findMinMax([10, -5, 20, 15, -3])); // { min: -5, max: 20 }
+
+        console.log("\n3. Missing Number Identification:");
+        console.log(findMissingNumber([11, 12, 14, 15, 16, 18, 19, 20])); // 13
+    </script>
+</body>
+</html>
